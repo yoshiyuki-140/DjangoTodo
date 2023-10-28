@@ -5,12 +5,20 @@
 {% endblock %}
 
 {% block body %}
+  <h1>タスク一覧</h1>
   {% for task in tasks %}
-    <ul>
-      <li>
-        <h2>{{ task.title }}</h2>
-        <p>{{ task.description }}</p>
-      </li>
-    </ul>
+    <div>
+      <ul>
+        <li>
+          <h2><a href="{% url 'todo_detail' todo_id=task.id %}">{{ task.title }}</a></h2>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="todo_new">タスクの追加</button>
+      </form>
+    </div>
   {% endfor %}
 {% endblock %}
