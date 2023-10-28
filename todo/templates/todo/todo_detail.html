@@ -6,4 +6,20 @@
 
 {% block body %}
   <h1>タスク詳細</h1>
+  <div>
+    <h2>
+      タイトル:<br />
+      {{ task.title }}
+    </h2>
+    <p>
+      説明:<br />
+      {{ task.description }}
+    </p>
+  </div>
+  <div>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" name="{{ task.id }}">タスクの削除</button>
+    </form>
+  </div>
 {% endblock %}

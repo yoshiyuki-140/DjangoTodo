@@ -12,7 +12,10 @@ def todo_list(request):
 
 
 def todo_detail(request, todo_id):
-    return render(request, 'todo/todo_detail.html')
+    task = Task.objects.get(pk=todo_id)
+    return render(request, 'todo/todo_detail.html', context={
+        'task': task
+    })
 
 
 def todo_delete_confirm(request, todo_id):
