@@ -1,2 +1,2 @@
 # DjangoTodo
-djangoの復習およびREST-APIの勉強
+djangoの復習
