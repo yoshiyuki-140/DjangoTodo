@@ -37,4 +37,5 @@ function migrate () {
     python3 "$PROJECT_ROOT"/manage.py migrate
 }
 
+alias py="python3"
 alias mig="migrate"
