@@ -1,1 +1,20 @@
-新しいtodoの作成画面
+{% extends 'base.html' %}
+
+{% block extraheader %}
+  <title>todo_new</title>
+{% endblock %}
+
+{% block body %}
+  <h1>タスク追加画面</h1>
+  <div>
+    <form method="post">
+      {% csrf_token %}
+      <label for="title">タイトル</label>
+      <input type="text" name="title">
+      <br>
+      <label for="description">説明</label>
+      <input type="text" name="description">
+      <button type="submit">追加</button>
+    </form>
+  </div>
+{% endblock %}

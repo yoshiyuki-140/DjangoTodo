@@ -2,6 +2,19 @@
 
 {% block extraheader %}
   <title>todo_list</title>
+  <style>
+    /* ボタン風のスタイリング */
+    .add-task-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff; /* ボタンの背景色 */
+      color: #fff; /* テキストの色 */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  </style>
 {% endblock %}
 
 {% block body %}
@@ -14,11 +27,8 @@
         </li>
       </ul>
     </div>
-    <div>
-      <form method="post">
-        {% csrf_token %}
-        <button type="submit" name="todo_new">タスクの追加</button>
-      </form>
-    </div>
   {% endfor %}
+  <div>
+    <a class="add-task-button" href="{% url 'todo_new' %}">タスクの追加</a>
+  </div>
 {% endblock %}

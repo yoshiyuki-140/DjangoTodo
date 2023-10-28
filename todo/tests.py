@@ -41,3 +41,8 @@ class Todo_detail_test(TestCase):
     def test_should_return_200_httpstatuscode(self):
         response = self.client.get(f'/todo/todo_detail/{self.task.pk}/')
         self.assertEqual(response.status_code, 200)
+
+class Todo_new_test(TestCase):
+    def test_should_return_200_httpstatuscode(self):
+        response = self.client.get(f'/todo/todo_new/')
+        self.assertEqual(response.status_code, 200)
