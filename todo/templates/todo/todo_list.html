@@ -1,1 +1,16 @@
-todo一覧の画面
+{% extends 'base.html' %}
+
+{% block extraheader %}
+  <title>todo_list</title>
+{% endblock %}
+
+{% block body %}
+  {% for task in tasks %}
+    <ul>
+      <li>
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.description }}</p>
+      </li>
+    </ul>
+  {% endfor %}
+{% endblock %}
