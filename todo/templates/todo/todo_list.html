@@ -2,34 +2,21 @@
 {% load django_bootstrap5 %}
 
 {% block extraheader %}
-  <title>todo_list</title>
-  <style>
-    /* ボタン風のスタイリング */
-    .add-task-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #007bff; /* ボタンの背景色 */
-      color: #fff; /* テキストの色 */
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-  </style>
+  <title>タスク一覧</title>
 {% endblock %}
 
 {% block body %}
-  <h1>タスク一覧</h1>
-  {% for task in tasks %}
-    <div>
-      <ul>
-        <li>
+  <div class="container mt-4">
+    <h1>タスク一覧</h1>
+    <ul class="list-group">
+      {% for task in tasks %}
+        <li class="list-group-item">
           <h2><a href="{% url 'todo_detail' todo_id=task.id %}">{{ task.title }}</a></h2>
         </li>
-      </ul>
+      {% endfor %}
+    </ul>
+    <div class="mt-3">
+      <a class="btn btn-primary" href="{% url 'todo_new' %}">タスクの追加</a>
     </div>
-  {% endfor %}
-  <div>
-    <a class="add-task-button" href="{% url 'todo_new' %}">タスクの追加</a>
   </div>
 {% endblock %}

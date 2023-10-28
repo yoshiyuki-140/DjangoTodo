@@ -1,14 +1,22 @@
+{% load django_bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>トップページ</title>
+
+    <!-- Bootstrap CSSをリンク -->
+    {% bootstrap_css %}
   </head>
   <body>
-    <h2>This is top page</h2>
-    <p>
-      todoAppは<a href="{% url 'todo_list' %}">こっち</a>
-    </p>
+    <div class="container mt-4">
+      <h2 class="display-4">ToDoアプリケーション</h2>
+      <p class="lead">ToDoアプリケーションへようこそ。タスクを管理し、効果的な作業を行いましょう。</p>
+      <a class="btn btn-primary" href="{% url 'todo_list' %}">ToDoリストを表示</a>
+    </div>
+
+    <!-- Bootstrapのスクリプトを読み込み -->
+    {% bootstrap_javascript %}
   </body>
 </html>

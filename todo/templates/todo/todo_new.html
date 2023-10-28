@@ -2,20 +2,27 @@
 {% load django_bootstrap5 %}
 
 {% block extraheader %}
-  <title>todo_new</title>
+  <title>タスク追加画面</title>
 {% endblock %}
 
 {% block body %}
-  <h1>タスク追加画面</h1>
-  <div>
-    <form method="post">
-      {% csrf_token %}
-      <label for="title">タイトル</label>
-      <input type="text" name="title">
-      <br>
-      <label for="description">説明</label>
-      <input type="text" name="description">
-      <button type="submit">追加</button>
-    </form>
+  <div class="container mt-4">
+    <h1>タスク追加画面</h1>
+    <div class="card">
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="title" class="form-label">タイトル</label>
+            <input type="text" name="title" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">説明</label>
+            <input type="text" name="description" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-primary">追加</button>
+        </form>
+      </div>
+    </div>
   </div>
 {% endblock %}

@@ -5,16 +5,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .title {
+        text-decoration: none;
+      }
+    </style>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     {% block extraheader %}
 
     {% endblock %}
   </head>
   <body>
-    <nav>
-      <a href="{% url 'todo_list' %}">TODO LIST</a>
+    <nav class="navbar navbar-expand flex-md-row navbar-dark bg-dark">
+      <div class="container">
+        <a class="title" href="{% url 'todo_list' %}">HOME</a>
+      </div>
     </nav>
-    {% block body %}
+    <div class="container mt-4">
+      {% block body %}
 
-    {% endblock %}
+      {% endblock %}
+    </div>
   </body>
 </html>
