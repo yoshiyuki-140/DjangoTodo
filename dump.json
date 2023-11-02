@@ -1,0 +1,106 @@
+[
+    {
+        "model": "todo.task",
+        "pk": 1,
+        "fields": {
+            "title": "確立と統計第5週課題",
+            "description": ""
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 2,
+        "fields": {
+            "title": "アカデミックリーディング課題",
+            "description": ""
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 3,
+        "fields": {
+            "title": "【レポート課題】：技術者のための統計第6回目課題　11月14日まで　",
+            "description": ""
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 4,
+        "fields": {
+            "title": "【レポート課題】：課題3：6w-1試作検証活動まとめ４　",
+            "description": ""
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 5,
+        "fields": {
+            "title": "【レポート課題】：情報ネットワーク_第6回レポート",
+            "description": ""
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 6,
+        "fields": {
+            "title": "OS課題",
+            "description": "【レポート課題】：ミニレポートw06　"
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 7,
+        "fields": {
+            "title": "アルゴリズムデザイン課題",
+            "description": "http://newton.info.kanazawa-it.ac.jp/courses/course-v1:KIT+E525+2023/course/"
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 8,
+        "fields": {
+            "title": "組込みシステム課題",
+            "description": "http://darkside.info.kanazawa-it.ac.jp/doku.php?id=%E8%AC%9B%E7%BE%A9:2023:%E7%B5%84%E8%BE%BC%E3%81%BF%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0:%E5%AE%BF%E9%A1%8Cw05"
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 9,
+        "fields": {
+            "title": "情報工学系代数学の問題を解く",
+            "description": "https://kanazawa-it.app.box.com/s/wpfzrctfjbviljb1yv6jzds4jupn6m44"
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 10,
+        "fields": {
+            "title": "【レポート課題】：第６週レポート提出",
+            "description": "【注意】 第６週レポートの提出期限：　11/8(水)23:59   "
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 11,
+        "fields": {
+            "title": "締め切り機能の追加",
+            "description": "現状締め切り機能がなく見にくい"
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 12,
+        "fields": {
+            "title": "終わった課題一覧のページが欲しい",
+            "description": "今のままだと課題が終わったとき保存できないので、フィードバックに生かしにくい"
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 13,
+        "fields": {
+            "title": "タスクの優先順位機能の追加",
+            "description": "締め切り機能を追加して迫っているもの順で提示する"
+        }
+    }
+]
