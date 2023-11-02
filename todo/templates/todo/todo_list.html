@@ -8,6 +8,10 @@
 {% block body %}
   <div class="container mt-4">
     <h1>タスク一覧</h1>
+    <div class="mt-3">
+      <a class="btn btn-primary" href="{% url 'todo_new' %}">タスクの追加</a>
+    </div>
+
     <ul class="list-group">
       {% for task in tasks %}
         <li class="list-group-item">
@@ -15,8 +19,5 @@
         </li>
       {% endfor %}
     </ul>
-    <div class="mt-3">
-      <a class="btn btn-primary" href="{% url 'todo_new' %}">タスクの追加</a>
-    </div>
   </div>
 {% endblock %}
