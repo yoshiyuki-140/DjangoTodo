@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Task(models.Model):
-    title = models.CharField("タスク", max_length=50)
+    title = models.CharField("タスク", max_length=50,blank=False)
     description = models.TextField("説明", blank=True)
 
     class Meta:

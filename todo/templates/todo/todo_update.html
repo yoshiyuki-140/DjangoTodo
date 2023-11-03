@@ -1,1 +1,17 @@
-すでにあるtodoの更新,編集画面
+{% extends 'base.html' %}
+
+{% block extraheader %}
+
+{% endblock %}
+
+{% block pagetitle %}
+  <h1>タスク編集画面</h1>
+{% endblock %}
+
+{% block body %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" name="save_task_button">保存</button>
+  </form>
+{% endblock %}

@@ -14,7 +14,7 @@
     <ul class="list-group">
       {% for task in tasks %}
         <li class="list-group-item">
-          <a class="title text-dark" href="{% url 'todo_detail' todo_id=task.id %}">{{ task.title }}</a>
+          <a class="title text-dark" href="{% url 'todo_detail' task.id %}">{{ task.title }}</a>
         </li>
       {% endfor %}
     </ul>

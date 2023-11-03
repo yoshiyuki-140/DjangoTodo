@@ -1,1 +1,16 @@
-これは削除確認画面
+{% extends 'base.html' %}
+
+{% block extraheader %}
+
+{% endblock %}
+
+{% block pagetitle %}
+  <h1>本当にこのタスクを消しますか？</h1>
+{% endblock %}
+
+{% block body %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger" name="delete_button">削除する</button>
+  </form>
+{% endblock %}
