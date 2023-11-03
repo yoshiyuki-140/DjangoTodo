@@ -5,21 +5,25 @@
   <title>タスク詳細</title>
 {% endblock %}
 
+{% block pagetitle %}
+  <h1>タスク詳細</h1>
+{% endblock %}
+
 {% block body %}
   <div class="container mt-4">
-    <h1>タスク詳細</h1>
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">タイトル:</h2>
-        <p class="card-text">{{ task.title }}</p>
-        <h2 class="card-title">説明:</h2>
-        <p class="card-text">{{ task.description }}</p>
-      </div>
+    <div>
+      <h2 class="form-label">タイトル</h2>
+      <p class="form-control">{{ task.title }}</p>
+      {% if task.description %}
+        <h2 class="form-label">説明</h2>
+        <p class="form-control">{{ task.description }}</p>
+      {% endif %}
     </div>
     <div class="mt-3">
-      <form method="post">
+      <form method="POST">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger" name="{{ task.id }}">タスクの削除</button>
+        <button type="button" class="btn btn-primary" onclick="history.back()">戻る</button>
       </form>
     </div>
   </div>

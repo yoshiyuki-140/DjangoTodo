@@ -6,8 +6,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+      *,
+      ::before,
+      ::after {
+        padding: 0;
+        margin: 0;
+      }
       .title {
         text-decoration: none;
+      }
+      nav {
+        height: 4rem;
+      }
+      footer {
+        margin-top: 3rem;
+        text-align: center;
+        padding-top: 5rem;
+        padding-bottom: 1rem;
+      }
+      h1 {
+        text-align: center;
       }
     </style>
     {% bootstrap_css %}
@@ -17,15 +35,27 @@
     {% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-expand flex-md-row navbar-dark bg-dark">
-      <div class="container">
-        <a class="title" href="{% url 'todo_list' %}">HOME</a>
-      </div>
-    </nav>
-    <div class="container mt-4">
-      {% block body %}
+    <header>
+      <nav class="navbar navbar-expand flex-md-row navbar-dark bg-dark">
+        <div class="container">
+          <a class="title text-white" href="{% url 'todo_list' %}">HOME</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="title mt-3">
+        {% block pagetitle %}
 
-      {% endblock %}
-    </div>
+        {% endblock %}
+      </div>
+      <div class="container mt-4">
+        {% block body %}
+
+        {% endblock %}
+      </div>
+    </main>
+    <footer>
+      <div>&copy;Kuro</div>
+    </footer>
   </body>
 </html>

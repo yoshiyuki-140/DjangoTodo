@@ -5,17 +5,20 @@
   <title>タスク一覧</title>
 {% endblock %}
 
+{% block pagetitle %}
+  <h1>タスク一覧</h1>
+{% endblock %}
+
 {% block body %}
   <div class="container mt-4">
-    <h1>タスク一覧</h1>
     <ul class="list-group">
       {% for task in tasks %}
         <li class="list-group-item">
-          <h2><a href="{% url 'todo_detail' todo_id=task.id %}">{{ task.title }}</a></h2>
+          <a class="title text-dark" href="{% url 'todo_detail' todo_id=task.id %}">{{ task.title }}</a>
         </li>
       {% endfor %}
     </ul>
-    <div class="mt-3">
+    <div class="mt-3 text-right">
       <a class="btn btn-primary" href="{% url 'todo_new' %}">タスクの追加</a>
     </div>
   </div>
