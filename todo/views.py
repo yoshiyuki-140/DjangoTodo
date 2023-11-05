@@ -14,9 +14,9 @@ def todo_list(request):
         '''
         追加ボタンが押されたら
         '''
-        redirect('todo_new')
+        return redirect('todo_new')
 
-    tasks = Task.objects.all()
+    tasks = Task.objects.all().order_by('deadline')
     return render(request, 'todo/todo_list.html', context={
         'tasks': tasks
     })
@@ -26,7 +26,8 @@ def todo_detail(request, todo_id):
     '''
     for showing task's detail
     '''
-    task = Task.objects.get(pk=todo_id)
+    # task = Task.objects.get(pk=todo_id)
+    task = get_object_or_404(Task, pk=todo_id)
 
     if request.method == "POST":
         if "delete_task_button" in request.POST:
@@ -34,11 +35,20 @@ def todo_detail(request, todo_id):
             '''
             return redirect('todo_delete_confirm', todo_id=todo_id)
 
-        if "edit_task_button" in request.POST:
+        elif "edit_task_button" in request.POST:
             '''編集ボタンが押されたら
             '''
             return redirect('todo_update', todo_id=todo_id)
 
+        elif "redirect_to_HOME" in request.POST:
+            '''HOMEへリダイレクトするボタンが押されたら
+            '''
+            return redirect('todo_list')
+
+        else:
+            '''論理的にここに飛んだらエラーだからね
+            '''
+        
     return render(request, 'todo/todo_detail.html', context={'task': task})
 
 
@@ -72,8 +82,9 @@ def todo_delete_confirm(request, todo_id):
         if "delete_button" in request.POST:
             task = Task.objects.get(pk=todo_id)
             task.delete()
-            redirect('todo_list')
-        raise Exception("削除ボタンが押されていないのにPOSTされました、おかしい挙動です.")
+            return redirect('todo_list')
+        else:
+            raise Exception("削除ボタンが押されていないのにPOSTされました、おかしい挙動です.")
 
     return render(request, 'todo/todo_delete_confirm.html')
 
