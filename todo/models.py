@@ -4,8 +4,9 @@ from django.db import models
 
 
 class Task(models.Model):
-    title = models.CharField("タスク", max_length=50,blank=False)
+    title = models.CharField("タスク", max_length=50, blank=False)
     description = models.TextField("説明", blank=True)
+    deadline = models.DateField("締切", blank=False)
 
     class Meta:
         # DBテーブル名

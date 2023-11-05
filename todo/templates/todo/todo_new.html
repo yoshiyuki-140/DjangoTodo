@@ -15,15 +15,8 @@
       <div class="card-body">
         <form method="post">
           {% csrf_token %}
-          <div class="mb-3">
-            <label for="title" class="form-label">タイトル</label>
-            <input type="text" name="title" class="form-control" />
-          </div>
-          <div class="mb-3">
-            <label for="description" class="form-label">説明</label>
-            <input type="text" name="description" class="form-control" />
-          </div>
-          <button type="submit" class="btn btn-primary">追加</button>
+          {% bootstrap_form form %}
+          {% bootstrap_button button_type='submit' content='追加' %}
         </form>
       </div>
     </div>

@@ -7,8 +7,15 @@ from todo.forms import TaskForm
 
 
 def todo_list(request):
+    '''
+    todo list
+    '''
     if request.method == 'POST':
+        '''
+        追加ボタンが押されたら
+        '''
         redirect('todo_new')
+
     tasks = Task.objects.all()
     return render(request, 'todo/todo_list.html', context={
         'tasks': tasks
@@ -16,13 +23,16 @@ def todo_list(request):
 
 
 def todo_detail(request, todo_id):
+    '''
+    for showing task's detail
+    '''
     task = Task.objects.get(pk=todo_id)
 
     if request.method == "POST":
         if "delete_task_button" in request.POST:
             '''削除ボタンが押されたら
             '''
-            return redirect('todo_delete_confirm',todo_id=todo_id)
+            return redirect('todo_delete_confirm', todo_id=todo_id)
 
         if "edit_task_button" in request.POST:
             '''編集ボタンが押されたら
@@ -35,15 +45,23 @@ def todo_detail(request, todo_id):
 def todo_new(request):
     if request.method == 'POST':
         '''
-        ここはバリデーションやサニタイズの処理が必要
+        タスク追加ボタンが押されたときの処理
         '''
         form = TaskForm(request.POST)
         if form.is_valid():
-            task = form.save()
+            '''サニタイズの結果入力が良い状態の時
+            '''
+            form.save()
             return redirect('todo_list')
-        messages.add_message(request,messages.WARNING,"そのデータは有効ではないです.")
-        return redirect('todo_new')
+        else:
+            '''サニタイズの結果入力がよろしくない状態の時
+            '''
+            messages.add_message(request, messages.WARNING, "そのデータは有効ではないです.")
+            return redirect('todo_new')
     else:
+        '''
+        ボタンが押されていないときの処理
+        '''
         form = TaskForm()
 
     return render(request, 'todo/todo_new.html', context={'form': form})
@@ -54,15 +72,19 @@ def todo_delete_confirm(request, todo_id):
         if "delete_button" in request.POST:
             task = Task.objects.get(pk=todo_id)
             task.delete()
-            return redirect('todo_list')
+            redirect('todo_list')
         raise Exception("削除ボタンが押されていないのにPOSTされました、おかしい挙動です.")
 
     return render(request, 'todo/todo_delete_confirm.html')
 
 
 def todo_update(request, todo_id):
+    '''タスクの編集画面
+    '''
     task = get_object_or_404(Task, pk=todo_id)
     if request.method == "POST":
+        '''
+        '''
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
