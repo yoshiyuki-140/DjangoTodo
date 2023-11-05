@@ -11,21 +11,43 @@
 
 {% block body %}
   <div class="container mt-4">
+    <div class="mt-3 float-start mb-3">
+      <a class="btn btn-primary" href="{% url 'todo_new' %}">タスクの追加</a>
+    </div>
     {% if tasks %}
-      <ul class="list-group">
-        {% for task in tasks %}
-          <li class="list-group-item">
-            <a class="title text-dark" href="{% url 'todo_detail' task.id %}">{{ task.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td>タイトル</td>
+            <td>締切</td>
+            <td>概要</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in tasks %}
+            <tr>
+              <td>
+                <h4><a class="title" href="{% url 'todo_detail' task.id %}" style="text-decoration: none;">{{ task.title }}</a></h4>
+              </td>
+              <td>
+                <small class="float-start">{{ task.deadline }}</small>
+              </td>
+              <td>
+                <p>
+                  <a class="content" href="{% url 'todo_detail' task.id %}" style="text-decoration:none;">{{ task.description | truncatechars:10}}</a>
+                </p>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     {% else %}
       <div class="mt-3 text-center">
         <h3>現在登録されているタスクはありません</h3>
       </div>
     {% endif %}
-    <div class="mt-3 float-right">
-      <a class="btn btn-primary float-right" href="{% url 'todo_new' %}">タスクの追加</a>
+    <div class="mt-3 float-end mb-3">
+      <a class="btn btn-primary" href="{% url 'todo_new' %}">タスクの追加</a>
     </div>
   </div>
 {% endblock %}
